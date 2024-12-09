@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<h1> Puppy's Special Treat Corner </h1>
+</head>    
+
+<body style="background-color: rgb(198, 182, 229);">
+
+<audio id="barksound"> 
+    <source src="bark.mp3" type="audio/mpeg">
+</audio>
+
+<p> Puppy's treats:</p>
+<p id="treatCounter"> 0 </p>
+
+<p>
+    <button type="button" onclick="addTreat()">Add Treat (Master only)</button>
+</p>
+
+
+
+<p> Request a treat!:</p>
+<p id="treatsRequested"> 0 </p>
+
+<p>
+    <button type="button" onclick="addRequest()">Request!</button>
+</p>
+
+</body>
+
+
+
+<script>
+const sheetId = '1sybhjo7hV-37oq0c5wtZjGLIIyLFaNZgQ_1a2jFVoyQ';
+const apiKey = 'AIzaSyDeV0XwbzUBoFuiLkG4DOJIIKjTmbSAnlE';
+const webAppUrl = 'https://script.google.com/macros/s/AKfycbxlVOBiLucsp1AeQYM0zQYrBlj4c52xInyLxU7sjdu4vm9wxplSFG2sqsV6IF-ieME/exec';
+const url = `${webAppUrl}?key=${apiKey}`;
+
+
+var barkaudio = document.getElementById("barksound");
+
+var treats = 0;
+var requests = 0;
+
+
+    function addTreat() {
+        treats += 1;
+        document.getElementById("treatCounter").innerText = Treats;
+        barkaudio.play();
+        fetch(url)
+              .then(response => response.text())
+              .then(data => {
+                console.log(data); // The response from your web app
+              })
+              .catch(error => {
+                console.error('Error updating cell:', error);
+              });
+    } 
+
+    function addRequest() {
+        requests += 1;
+        document.getElementById("treatsRequested").innerText = Requests;
+        barkaudio.play();
+        fetch(url)
+              .then(response => response.text())
+              .then(data => {
+                console.log(data); // The response from your web app
+              })
+              .catch(error => {
+                console.error('Error updating cell:', error);
+              });
+    } 
+
+    
+    
+</script>
+
+</html>
