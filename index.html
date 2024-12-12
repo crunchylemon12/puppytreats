@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<h1> Puppy's Special Treat Corner </h1>
+
+// Firestore
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+// Config
+<script type='text/javascript' src='config.js'></script>
+
+</head>    
+
+<body style="background-color: rgb(198, 182, 229);">
+
+<audio id="barksound"> 
+    <source src="bark.mp3" type="audio/mpeg">
+</audio>
+
+<p> Puppy's treats:</p>
+<p id="treatCounter"> 0 </p>
+
+<p>
+    <button type="button" onclick="addTreat()">Add Treat (Master only)</button>
+</p>
+
+
+
+<p> Request a treat!:</p>
+<p id="treatsRequested"> 0 </p>
+
+<p>
+    <button type="button" onclick="addRequest()">Request!</button>
+</p>
+
+
+// Copied from Firebase tutorial
+<script type="module">
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = config.firebaseConfig;
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+
+  const db = firebase.firestore();
+</script>
+
+</body>
+
+
+
+// My scripts!
+<script>
+
+var barkaudio = document.getElementById("barksound");
+
+var treats = 0;
+var requests = 0;
+
+
+    function addTreat() {
+        treats += 1;
+        document.getElementById("treatCounter").innerText = Treats;
+        barkaudio.play();
+
+    } 
+
+    function addRequest() {
+        requests += 1;
+        document.getElementById("treatsRequested").innerText = Requests;
+        barkaudio.play();
+        fetch(url)
+              .then(response => response.text())
+              .then(data => {
+                console.log(data); // The response from your web app
+              })
+              .catch(error => {
+                console.error('Error updating cell:', error);
+              });
+    } 
+
+    
+    
+</script>
+
+</html>
