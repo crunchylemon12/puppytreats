@@ -7,7 +7,7 @@
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script> 
 
-<script type="module">
+<script>
 // Copied from Firebase tutorial
 var firebaseConfig = {
     apiKey: "AIzaSyDBsw7l5PeGd8OThfVoe-C4BfW1lxoVAD0",
@@ -20,7 +20,7 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-
+console.log("pee")
 const database = firebase.database();
 const treatsRef = database.ref('treats'); // Reference to the 'treats' node
 </script>
@@ -58,7 +58,7 @@ const treatsRef = database.ref('treats'); // Reference to the 'treats' node
 <script>
 // My scripts!
 var barkaudio = document.getElementById("barksound");
-
+console.log("poo")
 var treats = firebase.database().ref(treats);
 treats.on('value', (snapshot) => {
   const data = snapshot.val();
