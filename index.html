@@ -61,11 +61,12 @@ const barkaudio = document.getElementById("barksound");
     
 // Reading and assigning treats
 treatsRef.on('value', (snapshot) => {
-    treats = snapshot.val();
+    var treats = snapshot.val();
     console.log(treats)
+    document.getElementById("treatCounter").innerText = treats;    
 });
 
-document.getElementById("treatCounter").innerText = treats;    
+
     
 var requests = 0;
 
