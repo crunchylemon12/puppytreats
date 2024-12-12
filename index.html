@@ -4,12 +4,11 @@
 <head>
 <h1> Puppy's Special Treat Corner </h1>
 
-// Firestore
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
 
-// Config
-<script type='text/javascript' src='config.js'></script>
+<script require('dotenv').config();></script>
+
 
 </head>    
 
@@ -42,7 +41,7 @@
   // https://firebase.google.com/docs/web/setup#available-libraries
 
   // Your web app's Firebase configuration
-  const firebaseConfig = config.firebaseConfig;
+  const firebaseConfig = process.env.firebaseConfig;
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
 
