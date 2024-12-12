@@ -22,7 +22,7 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 const database = firebase.database();
-const treatsRef = database.ref('treats'); // Reference to the 'treats' node
+const treatsRef = firebase.database().ref('treats');
 </script>
 
     
@@ -58,14 +58,14 @@ const treatsRef = database.ref('treats'); // Reference to the 'treats' node
 <script>
 // My scripts!
 var barkaudio = document.getElementById("barksound");
-console.log("poo")
-var treats = firebase.database().ref(treats);
-treats.on('value', (snapshot) => {
-  const data = snapshot.val();
-  updatetreats(postElement, data);
-});
 
-document.getElementById("treatCounter").innerText = data.treats;    
+// Reading and assigning treats
+treatsRef.on('value', (snapshot) => {
+    var treats = snapshot.val();
+    console.log(treats)
+}
+
+document.getElementById("treatCounter").innerText = treats;    
     
 var requests = 0;
 
