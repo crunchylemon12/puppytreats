@@ -20,7 +20,7 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-console.log("pee")
+
 const database = firebase.database();
 const treatsRef = database.ref('treats'); // Reference to the 'treats' node
 </script>
@@ -68,7 +68,7 @@ treats.on('value', (snapshot) => {
 document.getElementById("treatCounter").innerText = data.treats;    
     
 var requests = 0;
-var database = firebase.database();
+
 
 
 
