@@ -35,7 +35,7 @@ const treatsRef = firebase.database().ref('treats');
 </audio>
 
 <p> Puppy's treats:</p>
-<p id="treatCounter"> 0 </p>
+<p id="treatCounter"> Loading... </p>
 
 <p>
     <button type="button" onclick="addTreat()">Add Treat (Master only)</button>
@@ -44,7 +44,7 @@ const treatsRef = firebase.database().ref('treats');
 
 
 <p> Request a treat!:</p>
-<p id="treatsRequested"> 0 </p>
+<p id="treatsRequested"> Loading... </p>
 
 <p>
     <button type="button" onclick="addRequest()">Request!</button>
@@ -57,7 +57,7 @@ const treatsRef = firebase.database().ref('treats');
 
 <script>
 // My scripts!
-var barkaudio = document.getElementById("barksound");
+const barkaudio = document.getElementById("barksound");
 var treats = 0
     
 // Reading and assigning treats
@@ -70,15 +70,15 @@ document.getElementById("treatCounter").innerText = treats;
     
 var requests = 0;
 
+function addTreat() {
+    barkaudio.play();
+}
+
+function addRequest() {
+    barkaudio.play();
+}
 
 
-
-    function addTreat() {
-        treats += 1;
-        document.getElementById("treatCounter").innerText = Treats;
-        barkaudio.play();
-
-    } 
 
 
     
