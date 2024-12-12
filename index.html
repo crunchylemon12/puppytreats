@@ -58,11 +58,10 @@ const treatsRef = firebase.database().ref('treats');
 <script>
 // My scripts!
 const barkaudio = document.getElementById("barksound");
-var treats = 0
     
 // Reading and assigning treats
 treatsRef.on('value', (snapshot) => {
-    treats = snapshot.val();
+    window.treats = snapshot.val();
     console.log(treats)
 });
 
